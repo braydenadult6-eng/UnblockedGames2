@@ -1,7 +1,8 @@
-import gamesData from './games.json';
+import './index.css';
 
 // State management
 let state = {
+  gamesData: [],
   selectedGame: null,
   searchQuery: '',
   activeCategory: 'All',
@@ -11,8 +12,15 @@ let state = {
 const app = document.getElementById('app');
 
 // Initialization
-function init() {
-  render();
+async function init() {
+  try {
+    const response = await fetch('./games.json');
+    state.gamesData = await response.json();
+    render();
+  } catch (error) {
+    console.error('Failed to load games:', error);
+    app.innerHTML = `<div class="p-10 text-center uppercase font-mono text-red-500">Error loading database_ Check connection.</div>`;
+  }
 }
 
 // Rendering Logic
@@ -29,8 +37,8 @@ function render() {
 }
 
 function renderHome() {
-  const categories = ['All', ...new Set(gamesData.map(g => g.category))];
-  const filteredGames = gamesData.filter(game => {
+  const categories = ['All', ...new Set(state.gamesData.map(g => g.category))];
+  const filteredGames = state.gamesData.filter(game => {
     const matchesSearch = game.title.toLowerCase().includes(state.searchQuery.toLowerCase()) ||
                         game.category.toLowerCase().includes(state.searchQuery.toLowerCase());
     const matchesCategory = state.activeCategory === 'All' || game.category === state.activeCategory;
@@ -60,7 +68,6 @@ function renderHome() {
               type="text" 
               id="search-input"
               placeholder="Search unblocked titles..." 
-              value="${state.searchQuery}"
               class="w-full bg-[#16161a] border border-slate-800 rounded-full py-2.5 px-12 text-sm focus:outline-none focus:border-indigo-500 transition-colors placeholder:text-slate-600"
             />
             <div class="absolute right-4 top-1/2 -translate-y-1/2 text-[10px] font-mono text-slate-700 bg-slate-900 px-1.5 py-0.5 rounded border border-slate-800">⌘K</div>
@@ -68,7 +75,7 @@ function renderHome() {
         </div>
 
         <nav class="hidden lg:flex gap-8 text-xs font-bold uppercase tracking-widest text-slate-500">
-          <a href="#" class="text-indigo-400">Hub</a>
+          <a href="#" class="text-indigo-400 font-bold">Hub</a>
           <a href="#" class="hover:text-white transition-colors">Proxy</a>
           <a href="#" class="hover:text-white transition-colors">Docs</a>
         </nav>
@@ -76,25 +83,27 @@ function renderHome() {
 
       <main class="grid grid-cols-1 md:grid-cols-4 gap-4">
         <!-- Featured Large (Hero) -->
+        ${state.gamesData.length > 0 ? `
         <div 
           class="md:col-span-2 md:row-span-2 bg-[#16161a] border border-slate-800 rounded-3xl relative overflow-hidden group min-h-[360px] cursor-pointer"
           id="featured-game"
         >
           <div class="absolute inset-0 z-10 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
           <img 
-            src="${gamesData[0].thumbnail}" 
+            src="${state.gamesData[0].thumbnail}" 
             alt="Featured" 
             class="absolute inset-0 w-full h-full object-cover grayscale opacity-40 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" 
           />
           <div class="absolute bottom-8 left-8 z-20">
             <div class="text-[10px] font-bold uppercase tracking-[0.3em] text-indigo-400 mb-2">Featured Title</div>
-            <h2 class="text-4xl font-black mb-6 uppercase italic tracking-tighter">${gamesData[0].title}</h2>
+            <h2 class="text-4xl font-black mb-6 uppercase italic tracking-tighter">${state.gamesData[0].title}</h2>
             <button class="bg-indigo-600 hover:bg-indigo-500 text-white px-8 py-3 rounded-full font-bold flex items-center gap-2 transition-all shadow-xl shadow-indigo-600/20">
               <i data-lucide="flame" style="width: 18px; height: 18px;"></i>
               INITIALIZE GAME
             </button>
           </div>
         </div>
+        ` : ''}
 
         <div class="bg-[#16161a] border border-slate-800 rounded-3xl p-6 flex flex-col justify-between group">
           <div class="flex justify-between items-start">
@@ -109,7 +118,7 @@ function renderHome() {
           </div>
           <div>
             <h3 class="text-2xl font-bold tracking-tight">STABLE</h3>
-            <p class="text-xs text-slate-500 mt-1 italic opacity-70 leading-relaxed font-mono">Iframes served via proxy nodes_</p>
+            <p class="text-xs text-slate-500 mt-1 italic opacity-70 leading-relaxed font-mono">Archive node online_</p>
           </div>
         </div>
 
@@ -131,6 +140,7 @@ function renderHome() {
           </div>
         </div>
 
+        ${state.gamesData.length > 1 ? `
         <div 
           class="bg-[#16161a] border border-slate-800 rounded-3xl p-6 flex items-center gap-4 cursor-pointer hover:border-indigo-500/30 transition-colors overflow-hidden"
           id="trending-game"
@@ -139,10 +149,11 @@ function renderHome() {
             <i data-lucide="flame" style="width: 20px; height: 20px;"></i>
           </div>
           <div>
-            <h3 class="text-sm font-bold uppercase tracking-tight">${gamesData[1].title}</h3>
+            <h3 class="text-sm font-bold uppercase tracking-tight">${state.gamesData[1].title}</h3>
             <p class="text-[10px] text-slate-500 uppercase tracking-widest mt-0.5">Trending Next_</p>
           </div>
         </div>
+        ` : ''}
 
         <div class="bg-[#16161a] border border-slate-800 rounded-3xl p-6 flex flex-col justify-between">
           <div class="text-[10px] font-bold text-indigo-400 uppercase tracking-[0.2em] mb-1">Session_Live</div>
@@ -160,7 +171,7 @@ function renderHome() {
             ${filteredGames.map(game => `
               <div 
                 data-game-id="${game.id}"
-                class="game-card group cursor-pointer bg-[#16161a] border border-slate-800 rounded-2xl p-4 hover:border-indigo-500/50 transition-all"
+                class="game-card group cursor-pointer bg-[#16161a] border border-slate-800 rounded-2xl p-4 hover:border-indigo-500/50 transition-all font-sans"
               >
                 <div class="flex items-center gap-4">
                   <div class="w-16 h-16 rounded-xl overflow-hidden shrink-0 border border-slate-800">
@@ -172,7 +183,7 @@ function renderHome() {
                       <i data-lucide="clock" class="text-slate-700" style="width: 12px; height: 12px;"></i>
                     </div>
                     <h3 class="text-sm font-bold tracking-tight uppercase group-hover:text-indigo-400 transition-colors mt-1">${game.title}</h3>
-                    <p class="text-[10px] text-slate-500 line-clamp-1 mt-0.5">${game.description}</p>
+                    <p class="text-[10px] text-slate-500 line-clamp-1 mt-0.5 font-normal">${game.description}</p>
                   </div>
                 </div>
               </div>
@@ -196,16 +207,19 @@ function renderHome() {
   `;
 
   // Attach events
-  document.getElementById('search-input').addEventListener('input', (e) => {
+  const searchInput = document.getElementById('search-input');
+  searchInput.value = state.searchQuery;
+  searchInput.addEventListener('input', (e) => {
     state.searchQuery = e.target.value;
+    // Debounce or just update filtered grid for performance
     render();
-    // Keep focus on input after re-render
     const input = document.getElementById('search-input');
     input.focus();
     input.setSelectionRange(input.value.length, input.value.length);
   });
 
-  document.getElementById('category-filters').addEventListener('click', (e) => {
+  const categoryFilters = document.getElementById('category-filters');
+  categoryFilters.addEventListener('click', (e) => {
     const btn = e.target.closest('button');
     if (btn) {
       state.activeCategory = btn.dataset.category;
@@ -213,24 +227,31 @@ function renderHome() {
     }
   });
 
-  document.getElementById('games-grid').addEventListener('click', (e) => {
+  const gamesGrid = document.getElementById('games-grid');
+  gamesGrid.addEventListener('click', (e) => {
     const card = e.target.closest('.game-card');
     if (card) {
       const gameId = card.dataset.gameId;
-      state.selectedGame = gamesData.find(g => g.id === gameId);
+      state.selectedGame = state.gamesData.find(g => g.id === gameId);
       render();
     }
   });
 
-  document.getElementById('featured-game').addEventListener('click', () => {
-    state.selectedGame = gamesData[0];
-    render();
-  });
+  const featured = document.getElementById('featured-game');
+  if (featured) {
+    featured.addEventListener('click', () => {
+      state.selectedGame = state.gamesData[0];
+      render();
+    });
+  }
 
-  document.getElementById('trending-game').addEventListener('click', () => {
-    state.selectedGame = gamesData[1];
-    render();
-  });
+  const trending = document.getElementById('trending-game');
+  if (trending) {
+    trending.addEventListener('click', () => {
+      state.selectedGame = state.gamesData[1];
+      render();
+    });
+  }
 }
 
 function renderViewer() {
@@ -307,5 +328,5 @@ function renderViewer() {
   });
 }
 
-// Start the app
 init();
+
