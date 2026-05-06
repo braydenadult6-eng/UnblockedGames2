@@ -1,0 +1,50 @@
+[
+  {
+    "id": "2048",
+    "title": "2048",
+    "description": "Join the numbers and get to the 2048 tile!",
+    "category": "Puzzle",
+    "thumbnail": "https://images.unsplash.com/photo-1614332287897-cdc485fa562d?w=400&h=300&fit=crop",
+    "iframeUrl": "https://play2048.co/"
+  },
+  {
+    "id": "tetris",
+    "title": "Tetris",
+    "description": "The classic block-stacking puzzle game.",
+    "category": "Classic",
+    "thumbnail": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=300&fit=crop",
+    "iframeUrl": "https://tetris.com/play-tetris"
+  },
+  {
+    "id": "snake",
+    "title": "Google Snake",
+    "description": "Eat the apples and grow your snake without hitting the walls.",
+    "category": "Classic",
+    "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=300&fit=crop",
+    "iframeUrl": "https://www.google.com/logos/2010/pacman10-i.html"
+  },
+  {
+    "id": "pacman",
+    "title": "Pac-Man",
+    "description": "Navigate the maze and eat all the dots while avoiding ghosts.",
+    "category": "Retro",
+    "thumbnail": "https://images.unsplash.com/photo-1579373903781-fd5c0c30c4cd?w=400&h=300&fit=crop",
+    "iframeUrl": "https://macek.github.io/google_pacman/"
+  },
+  {
+    "id": "chess",
+    "title": "Chess",
+    "description": "The ultimate game of strategy and skill.",
+    "category": "Board",
+    "thumbnail": "https://images.unsplash.com/photo-1529699211952-734e80c4d42b?w=400&h=300&fit=crop",
+    "iframeUrl": "https://www.chess.com/play/online"
+  },
+  {
+    "id": "sudoku",
+    "title": "Sudoku",
+    "description": "Fill the 9x9 grid so that each row, column and 3x3 section contains all digits from 1 to 9.",
+    "category": "Puzzle",
+    "thumbnail": "https://images.unsplash.com/photo-1611996598195-d8fa82b0d7a5?w=400&h=300&fit=crop",
+    "iframeUrl": "https://sudoku.com/"
+  }
+]
