@@ -1,3 +1,5 @@
+import './index.css';
+
 // State management
 let state = {
   gamesData: [],
