@@ -13,8 +13,10 @@ const app = document.getElementById('app');
 
 // Initialization
 async function init() {
+  app.innerHTML = `<div class="p-10 text-center uppercase font-mono text-indigo-500 animate-pulse">Initializing System_</div>`;
   try {
-    const response = await fetch('games.json');
+    const baseUrl = import.meta.env.BASE_URL || './';
+    const response = await fetch(`${baseUrl}games.json`);
     state.gamesData = await response.json();
     render();
   } catch (error) {
