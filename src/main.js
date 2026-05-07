@@ -1,5 +1,3 @@
-import './index.css';
-
 // State management
 let state = {
   gamesData: [],
@@ -14,7 +12,7 @@ const app = document.getElementById('app');
 // Initialization
 async function init() {
   try {
-    const response = await fetch('./games.json');
+    const response = await fetch('games.json');
     state.gamesData = await response.json();
     render();
   } catch (error) {
