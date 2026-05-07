@@ -1,5 +1,3 @@
-import './index.css';
-
 // State management
 let state = {
   gamesData: [],
@@ -16,12 +14,24 @@ async function init() {
   app.innerHTML = `<div class="p-10 text-center uppercase font-mono text-indigo-500 animate-pulse">Initializing System_</div>`;
   try {
     const baseUrl = import.meta.env.BASE_URL || './';
+    console.log('Fetching database from:', `${baseUrl}games.json`);
     const response = await fetch(`${baseUrl}games.json`);
+    
+    if (!response.ok) {
+      throw new Error(`Critical database error: ${response.status} ${response.statusText}`);
+    }
+    
     state.gamesData = await response.json();
     render();
   } catch (error) {
-    console.error('Failed to load games:', error);
-    app.innerHTML = `<div class="p-10 text-center uppercase font-mono text-red-500">Error loading database_ Check connection.</div>`;
+    console.error('Core system failure:', error);
+    app.innerHTML = `
+      <div class="p-10 text-center uppercase font-mono flex flex-col items-center gap-4">
+        <div class="text-red-500 font-bold">ERROR // DATABASE_LINK_FAILURE</div>
+        <div class="text-slate-600 text-[10px] max-w-md">${error.message}</div>
+        <div class="text-slate-700 text-[9px] mt-4 opacity-50">Please ensure the 'dist' contents are deployed correctly to GitHub Pages.</div>
+      </div>
+    `;
   }
 }
 
