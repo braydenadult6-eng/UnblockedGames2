@@ -1,50 +1,114 @@
 [
   {
-    "id": "2048",
-    "title": "2048",
-    "description": "Join the numbers and get to the 2048 tile!",
-    "category": "Puzzle",
-    "thumbnail": "https://images.unsplash.com/photo-1614332287897-cdc485fa562d?w=400&h=300&fit=crop",
-    "iframeUrl": "https://play2048.co/"
+    "id": "basket-random",
+    "title": "Basket Random",
+    "description": "A fun and chaotic 2-player basketball game where every jump is unpredictable.",
+    "category": "Sports",
+    "thumbnail": "https://images.unsplash.com/photo-1546519638-68e109498ffc?w=400&h=300&fit=crop",
+    "iframeUrl": "https://fivenightsatfreddysonline.github.io/g26/class-436"
   },
   {
-    "id": "tetris",
-    "title": "Tetris",
-    "description": "The classic block-stacking puzzle game.",
-    "category": "Classic",
+    "id": "3d-brawl-simulator",
+    "title": "3D Brawl Simulator",
+    "description": "Engage in physics-based combat and chaotic battles in this 3D arena simulator.",
+    "category": "Action",
+    "thumbnail": "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=400&h=300&fit=crop",
+    "iframeUrl": "https://mrsmiths.mathprep.cmstarhely.hu/api/gc/gn-html/755.html"
+  },
+  {
+    "id": "escape-road",
+    "title": "Escape Road",
+    "description": "Navigate through heavy traffic and escape the police in this high-octane driving game.",
+    "category": "Driving",
+    "thumbnail": "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=400&h=300&fit=crop",
+    "iframeUrl": "https://snakeio-unblocked.github.io/embed/escape-road.html"
+  },
+  {
+    "id": "wheelie-bike",
+    "title": "Wheelie Bike",
+    "description": "Maintain your wheelie balance as long as possible in this addictive arcade game.",
+    "category": "Arcade",
+    "thumbnail": "https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=400&h=300&fit=crop",
+    "iframeUrl": "https://jasongamesdev.github.io/wheelie-bike/"
+  },
+  {
+    "id": "ragdoll-archers",
+    "title": "Ragdoll Archers",
+    "description": "Engage in intense archery battles with ragdoll physics and unique arrows.",
+    "category": "Action",
+    "thumbnail": "https://images.unsplash.com/photo-1511033285149-16641618a804?w=400&h=300&fit=crop",
+    "iframeUrl": "https://jasongamesdev.github.io/ragdoll-archers/"
+  },
+  {
+    "id": "ragdoll-hit",
+    "title": "Ragdoll Hit",
+    "description": "Fight and defeat your enemies with physics-based ragdoll combat and funny movements.",
+    "category": "Action",
+    "thumbnail": "https://images.unsplash.com/photo-1555680202-c86f0e12f086?w=400&h=300&fit=crop",
+    "iframeUrl": "https://jasongamesdev.github.io/ragdoll-hit/"
+  },
+  {
+    "id": "bloxorz",
+    "title": "Bloxorz",
+    "description": "A brain-twisting puzzle game where you roll a block to reach the goal hole.",
+    "category": "Puzzle",
+    "thumbnail": "https://images.unsplash.com/photo-1516259762381-22954d7d3ad2?w=400&h=300&fit=crop",
+    "iframeUrl": "https://chaitanya100100.github.io/Bloxorz/"
+  },
+  {
+    "id": "geometry-dash-subzero",
+    "title": "Geometry Dash Subzero",
+    "description": "Jump and fly your way through danger in this rhythm-based action platformer.",
+    "category": "Arcade",
     "thumbnail": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=300&fit=crop",
-    "iframeUrl": "https://tetris.com/play-tetris"
+    "iframeUrl": "https://jasongamesdev.github.io/geometry-dash-subzero/"
   },
   {
-    "id": "snake",
-    "title": "Google Snake",
-    "description": "Eat the apples and grow your snake without hitting the walls.",
-    "category": "Classic",
-    "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=300&fit=crop",
-    "iframeUrl": "https://www.google.com/logos/2010/pacman10-i.html"
+    "id": "soccer-random",
+    "title": "Soccer Random",
+    "description": "A fun and chaotic 2-player soccer game where everything is unpredictable.",
+    "category": "Sports",
+    "thumbnail": "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=400&h=300&fit=crop",
+    "iframeUrl": "https://unblocked-games-786.github.io/Soccer-Random/"
   },
   {
-    "id": "pacman",
-    "title": "Pac-Man",
-    "description": "Navigate the maze and eat all the dots while avoiding ghosts.",
-    "category": "Retro",
-    "thumbnail": "https://images.unsplash.com/photo-1579373903781-fd5c0c30c4cd?w=400&h=300&fit=crop",
-    "iframeUrl": "https://macek.github.io/google_pacman/"
+    "id": "volley-random",
+    "title": "Volley Random",
+    "description": "Experience chaotic and fun physics-based volleyball matches where every point is a surprise.",
+    "category": "Sports",
+    "thumbnail": "https://images.unsplash.com/photo-1612872086822-48745b375971?w=400&h=300&fit=crop",
+    "iframeUrl": "https://unblocked-games-786.github.io/Volley-Random/"
   },
   {
-    "id": "chess",
-    "title": "Chess",
-    "description": "The ultimate game of strategy and skill.",
-    "category": "Board",
-    "thumbnail": "https://images.unsplash.com/photo-1529699211952-734e80c4d42b?w=400&h=300&fit=crop",
-    "iframeUrl": "https://www.chess.com/play/online"
+    "id": "five-nights-at-epsteins",
+    "title": "Five Nights at Epstein's",
+    "description": "A satirical horror fan game inspired by Five Nights at Freddy's.",
+    "category": "Horror",
+    "thumbnail": "https://images.unsplash.com/photo-1509248961158-e54f6934749c?w=400&h=300&fit=crop",
+    "iframeUrl": "https://freedomgamingzone.github.io/five-nights-at-epsteins/"
   },
   {
-    "id": "sudoku",
-    "title": "Sudoku",
-    "description": "Fill the 9x9 grid so that each row, column and 3x3 section contains all digits from 1 to 9.",
-    "category": "Puzzle",
-    "thumbnail": "https://images.unsplash.com/photo-1611996598195-d8fa82b0d7a5?w=400&h=300&fit=crop",
-    "iframeUrl": "https://sudoku.com/"
+    "id": "escape-road-2",
+    "title": "Escape Road 2",
+    "description": "The high-speed sequel with more obstacles and faster pursuits.",
+    "category": "Driving",
+    "thumbnail": "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=400&h=300&fit=crop",
+    "iframeUrl": "https://game.azgame.io/escape-road-2/"
+  },
+  {
+    "id": "escape-road-3",
+    "title": "Escape Road 3",
+    "description": "The latest chapter in the high-stakes driving series with new vehicles and intense police chases.",
+    "category": "Driving",
+    "thumbnail": "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=400&h=300&fit=crop",
+    "iframeUrl": "https://azgames.io/escape-road-3.embed"
+  },
+  {
+    "id": "epstein-clicker",
+    "title": "Epstein Clicker",
+    "description": "An addictive idle clicker game with a unique theme.",
+    "category": "Arcade",
+    "thumbnail": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=300&fit=crop",
+    "iframeUrl": "https://epsteinclicker.github.io/"
   }
 ]
